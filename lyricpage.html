@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psalm Lyrics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<h1 id="songTitle"></h1>
+</nav>
+
+<div class="container">
+
+<p id="lyrics">
+Lyrics will appear here.
+Add your Psalm lyrics in the script later.
+</p>
+
+<a href="index.html">⬅ Back to Psalms</a>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const song = params.get("song");
+
+document.getElementById("songTitle").innerText = song;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+const tableBody = document.getElementById("songBody");
+const searchBar = document.getElementById("searchBar");
+
+let songs=[];
+
+for(let i=1;i<=150;i++){
+songs.push({
+number:i,
+name:"Psalms"+i
+});
+}
+
+function loadSongs(data){
+
+tableBody.innerHTML="";
+
+data.forEach(song=>{
+
+let row=document.createElement("tr");
+
+row.innerHTML=`
+<td>${song.number}</td>
+<td>
+<a href="lyrics.html?song=${song.name}">
+${song.name}
+</a>
+</td>
+`;
+
+tableBody.appendChild(row);
+
+});
+
+}
+
+loadSongs(songs);
+
+searchBar.addEventListener("keyup",function(){
+
+let value=searchBar.value.toLowerCase();
+
+let filtered=songs.filter(song =>
+song.name.toLowerCase().includes(value) ||
+song.number.toString().includes(value)
+);
+
+loadSongs(filtered);
+
+});
